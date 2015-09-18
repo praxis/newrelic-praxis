@@ -11,14 +11,14 @@ Add the gem to your Gemfile:
 gem 'newrelic-praxis'
 ```
 
-Require the gem and start the New Relic agent normally.
+Make sure you require the gem before calling `Praxis::Application.instance.setup`. For example, using a simple `config.ru` file like this one:
 
-For example, you could use a simple initializer like `config/initializers/init_newrelic.rb`:
 ```ruby
-require 'newrelic_rpm'
-require 'newrelic-praxis'
+ENV['RACK_ENV'] ||= 'development'
+Bundler.setup(:default, ENV['RACK_ENV'])
+Bundler.require(:default, ENV['RACK_ENV'])
 
-NewRelic::Agent.manual_start
+run Praxis::Application.instance.setup
 ```
 
 ## What Is Instrumented
