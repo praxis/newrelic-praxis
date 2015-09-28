@@ -15,8 +15,10 @@ DependencyDetection.defer do
 
   executes do
     require 'newrelic-praxis/praxis/action_event'
+    require 'newrelic-praxis/praxis/request_subscriber'
     require 'newrelic-praxis/praxis/action_subscriber'
 
+    NewRelic::Agent::Instrumentation::Praxis::RequestSubscriber.subscribe 'praxis.request.all'.freeze
     NewRelic::Agent::Instrumentation::Praxis::ActionSubscriber.subscribe 'praxis.request_stage.execute'.freeze
   end
 end
