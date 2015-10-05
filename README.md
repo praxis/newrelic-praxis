@@ -54,9 +54,11 @@ Additionally, any database interaction outside of Praxis::Mapper (i.e. `ModelCla
 
 ## Configuration
 
-Simply requiring the gem, as in the `init_newrelic.rb` example above, is sufficient add all of the instrumentation when the New Relic agent starts.
+It is likely that the default configuration suits most of your needs so you might not need to configure anything else than the license key.
 
-You can disable specific portions of the instrumentation with the following configuration flags in your New Relic configuration (typically `newrelic.yml`):
+However, if you need to tweak any settings, this gem can be configured following exactly the same methods of the underlying [newrelic_rpm](https://github.com/newrelic/rpm) gem. This includes defining a config file (typically `newrelic.yml`) with all the original supported options or passing these equivalent settings through environment variables. See [this](https://docs.newrelic.com/docs/agents/ruby-agent/installation-configuration/ruby-agent-configuration) for more details.
+
+In addition to those standard options, there are three more that allow you to disable specific portions of the Praxis instrumentation:
 
   * `disable_praxis_instrumentation` -- disables the `ControllerClass#action_method` tracing. `Praxis::Application#call` and `Praxis::Router#call` are provided by New Relic as part of its Rack instrumentation.
   * `disable_praxis_blueprints_instrumentation` -- disables `:ClassName/:view_name Template` tracing for Praxis::Blueprint.
