@@ -1,4 +1,7 @@
-# Praxis New Relic Support
+# Praxis New Relic Support [![Dependency Status][gemnasium-img-url]][gemnasium-url]
+
+[gemnasium-img-url]:https://gemnasium.com/rightscale/newrelic-praxis.svg
+[gemnasium-url]:https://gemnasium.com/rightscale/newrelic-praxis
 
 New Relic instrumentation for Praxis, Praxis Blueprints, and Praxis Mapper.
 
