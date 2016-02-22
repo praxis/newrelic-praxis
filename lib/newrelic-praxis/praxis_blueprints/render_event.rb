@@ -4,7 +4,11 @@ module NewRelic::Agent::Instrumentation
       class RenderEvent < Event
 
         def metric_name
-          view_name = self.payload[:view].name
+          view_name = if (view = self.payload[:view])
+            view.name
+          else
+            'fields'
+          end
           blueprint_name = self.payload[:blueprint].class.name
 
           # mark views rendered with list of fields
