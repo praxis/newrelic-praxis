@@ -2,6 +2,8 @@
 
 ## next
 
+## 1.1.1
+
 * `Blueprint` instrumentation's `RenderEvent` raising a `NoMethodError` when the notification's `payload[:view]` is `nil`.
 
 ## 1.1
@@ -12,4 +14,3 @@
 
 * Initial release of the Gem:
   * It has support for Praxis (the API framework), Praxis Blueprints and Praxis Mapper.
-
